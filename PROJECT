@@ -1,0 +1,7 @@
+version: "2"
+domain: maisem.dev
+repo: operators.maisem.dev
+resources:
+- group: operators
+  version: v1alpha1
+  kind: Kubernetes

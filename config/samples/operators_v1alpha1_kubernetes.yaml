@@ -1,0 +1,26 @@
+apiVersion: operators.maisem.dev/v1alpha1
+kind: Kubernetes
+metadata:
+  name: kubernetes-1
+spec:
+  replicas: 1
+  version: v1.16.1
+  clusterDomain: cluster.local
+  serviceClusterIPRange: 10.128.0.0/24
+  apiServiceSpec:
+    type: LoadBalancer
+  etcd:
+    size: 1
+    version: "3.2.13"
+    pod:
+      labels:
+        kube: etcd-0
+      persistentVolumeClaimSpec:
+        accessModes:
+        - ReadWriteOnce
+        storageClassName: fast
+        resources:
+          requests:
+            storage: "10Gi"
+  rootIssuer:
+    selfSigned: {}
