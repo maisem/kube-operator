@@ -173,11 +173,12 @@ func (r *KubernetesReconciler) handleKubeControllerManager(ctx context.Context, 
 		},
 	}
 	kcm := (&kubernetes.KubeControllerManager{
-		Image:                "k8s.gcr.io/kube-controller-manager:" + kr.kube.Spec.Version,
-		KubeConfigSecret:     kcmKubeconfigSecret,
-		CASecret:             kr.kubeCerts.kubeCACert.name,
-		FrontProxySecret:     kr.kubeCerts.frontProxyClient.name,
-		ServiceAccountSecret: kr.kubeCerts.saCert.name,
+		Image:                 "k8s.gcr.io/kube-controller-manager:" + kr.kube.Spec.Version,
+		KubeConfigSecret:      kcmKubeconfigSecret,
+		CASecret:              kr.kubeCerts.kubeCACert.name,
+		FrontProxySecret:      kr.kubeCerts.frontProxyClient.name,
+		ServiceAccountSecret:  kr.kubeCerts.saCert.name,
+		EnableBootstrapTokens: true,
 	}).Spec()
 	if _, err := r.CreateOrUpdate(ctx, dep, func() error {
 		addOwnerReferenceIfRequired(kr.kube, dep)

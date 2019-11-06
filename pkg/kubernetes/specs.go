@@ -128,11 +128,12 @@ func (ks *KubeScheduler) Spec() *corev1.PodSpec {
 }
 
 type KubeControllerManager struct {
-	Image                string
-	CASecret             string
-	FrontProxySecret     string
-	ServiceAccountSecret string
-	KubeConfigSecret     string
+	Image                 string
+	CASecret              string
+	FrontProxySecret      string
+	ServiceAccountSecret  string
+	KubeConfigSecret      string
+	EnableBootstrapTokens bool
 }
 
 func (kcm *KubeControllerManager) Spec() *corev1.PodSpec {
@@ -152,7 +153,6 @@ func (kcm *KubeControllerManager) Spec() *corev1.PodSpec {
 		"--bind-address=127.0.0.1",
 		"--leader-elect=true",
 		"--use-service-account-credentials=true",
-		"--controllers=*,bootstrapsigner,tokencleaner",
 
 		"--authentication-kubeconfig=/etc/kubernetes/pki/kubeconfig/kubeconfig",
 		"--authorization-kubeconfig=/etc/kubernetes/pki/kubeconfig/kubeconfig",
@@ -166,6 +166,10 @@ func (kcm *KubeControllerManager) Spec() *corev1.PodSpec {
 		"--requestheader-client-ca-file=/etc/kubernetes/pki/front-proxy/ca.crt",
 
 		"--service-account-private-key-file=/etc/kubernetes/pki/service-account/tls.key",
+	}
+
+	if kcm.EnableBootstrapTokens {
+		c.Args = append(c.Args, "--controllers=*,bootstrapsigner,tokencleaner")
 	}
 
 	addSecretVolume(ps, c, kcm.CASecret, "/etc/kubernetes/pki/ca")
