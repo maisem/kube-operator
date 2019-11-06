@@ -22,7 +22,6 @@ require (
 	github.com/go-openapi/jsonreference v0.19.3 // indirect
 	github.com/gogo/protobuf v1.3.1 // indirect
 	github.com/golang/groupcache v0.0.0-20191002201903-404acd9df4cc // indirect
-	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/google/pprof v0.0.0-20191022163618-5260658b92d7 // indirect
 	github.com/gophercloud/gophercloud v0.6.0 // indirect
@@ -76,6 +75,7 @@ require (
 	k8s.io/klog v1.0.0 // indirect
 	k8s.io/utils v0.0.0-20191010214722-8d271d903fe4 // indirect
 	sigs.k8s.io/controller-runtime v0.3.0
+	sigs.k8s.io/controller-tools v0.2.1 // indirect
 	sigs.k8s.io/kustomize/kustomize v0.0.0-20191022231636-0a8faced8fc3 // indirect
 	sigs.k8s.io/structured-merge-diff v0.0.0-20191023203907-336d3378ca53 // indirect
 	sigs.k8s.io/yaml v1.1.0
@@ -86,3 +86,5 @@ replace k8s.io/api => k8s.io/api v0.0.0-20190918195907-bd6ac527cfd2
 replace k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20190817020851-f2f3a405f61d
 
 replace k8s.io/client-go => k8s.io/client-go v0.0.0-20190918200256-06eb1244587a
+
+replace sigs.k8s.io/controller-tools => sigs.k8s.io/controller-tools v0.2.2

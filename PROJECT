@@ -1,6 +1,6 @@
 version: "2"
 domain: maisem.dev
-repo: operators.maisem.dev
+repo: operators.maisem.dev/kube
 resources:
 - group: operators
   version: v1alpha1
