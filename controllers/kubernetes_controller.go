@@ -424,10 +424,10 @@ func (c *cert) spec() *cmapi.CertificateSpec {
 		},
 		CommonName: c.cn,
 		Duration: &metav1.Duration{
-			Duration: 24 * time.Hour,
+			Duration: 30 * 24 * time.Hour,
 		},
 		RenewBefore: &metav1.Duration{
-			Duration: 12 * time.Hour,
+			Duration: 20 * 24 * time.Hour,
 		},
 		KeySize:      4096,
 		KeyAlgorithm: cmapi.RSAKeyAlgorithm,

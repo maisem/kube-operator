@@ -35,11 +35,6 @@ var (
 				ReadOnly:  true,
 			},
 			{
-				MountPath: "/usr/local/share/ca-certificates",
-				Name:      "usr-local-share-ca-certificates",
-				ReadOnly:  true,
-			},
-			{
 				MountPath: "/usr/share/ca-certificates",
 				Name:      "usr-share-ca-certificates",
 				ReadOnly:  true,
@@ -68,15 +63,6 @@ var (
 				VolumeSource: corev1.VolumeSource{
 					HostPath: &corev1.HostPathVolumeSource{
 						Path: "/etc/ca-certificates",
-						Type: &dirOrCreate,
-					},
-				},
-			},
-			{
-				Name: "usr-local-share-ca-certificates",
-				VolumeSource: corev1.VolumeSource{
-					HostPath: &corev1.HostPathVolumeSource{
-						Path: "/usr/local/share/ca-certificates",
 						Type: &dirOrCreate,
 					},
 				},

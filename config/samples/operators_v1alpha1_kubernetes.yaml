@@ -2,6 +2,7 @@ apiVersion: operators.maisem.dev/v1alpha1
 kind: Kubernetes
 metadata:
   name: kubernetes-1
+  namespace: kubeception
 spec:
   replicas: 1
   version: v1.16.1

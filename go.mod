@@ -22,6 +22,7 @@ require (
 	github.com/go-openapi/jsonreference v0.19.3 // indirect
 	github.com/gogo/protobuf v1.3.1 // indirect
 	github.com/golang/groupcache v0.0.0-20191002201903-404acd9df4cc // indirect
+	github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db // indirect
 	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/google/pprof v0.0.0-20191022163618-5260658b92d7 // indirect
 	github.com/gophercloud/gophercloud v0.6.0 // indirect
@@ -67,7 +68,6 @@ require (
 	golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898 // indirect
 	google.golang.org/appengine v1.6.5 // indirect
 	google.golang.org/grpc v1.24.0 // indirect
-	gopkg.in/yaml.v2 v2.2.4
 	k8s.io/api v0.0.0-20191016225839-816a9b7df678
 	k8s.io/apimachinery v0.0.0-20191023151415-c77a697df336
 	k8s.io/client-go v11.0.1-0.20190409021438-1a26190bd76a+incompatible
